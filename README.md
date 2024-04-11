@@ -106,6 +106,16 @@ The `render` function is used to render a React component. The `screen` object i
 
 Queries are used to query the rendered component. The following queries are available:
 
+To extend the queries available in the vitest library, you can use the `@testing-library/jest-dom` library.
+
+```bash
+npm install --save-dev @testing-library/jest-dom
+```
+
+```javascript
+import '@testing-library/jest-dom/vitest';
+```
+
 - getByLabelText
 - getByPlaceholderText
 - getByText
