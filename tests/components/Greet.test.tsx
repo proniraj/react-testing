@@ -2,7 +2,7 @@ import Greet from '../../src/components/Greet';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 
-describe('Green', () => {
+describe('Greet', () => {
   it('should render Hello with name when name is provided', () => {
     render(<Greet name="John" />);
 
