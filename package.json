@@ -12,7 +12,16 @@
         "lint:fix": "eslint . --ext .ts,.tsx --fix",
         "prepare": "husky",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "test": "vitest",
+        "test:watch": "vitest --watch",
+        "test:coverage": "vitest --coverage",
+        "test:ci": "vitest --ci",
+        "test:debug": "vitest --debug",
+        "test:inspect": "vitest --inspect",
+        "test:inspect-brk": "vitest --inspect-brk",
+        "test:inspect-brk:ci": "vitest --inspect-brk --ci",
+        "test:ui": "vitest --ui"
     },
     "keywords": [],
     "author": "",
@@ -39,11 +48,13 @@
         "eslint-plugin-react-refresh": "^0.4.6",
         "globals": "^15.0.0",
         "husky": "^9.0.11",
+        "jsdom": "^24.0.0",
         "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
         "typescript": "^5.4.5",
         "typescript-eslint": "^7.6.0",
-        "vite": "^5.2.8"
+        "vite": "^5.2.8",
+        "vitest": "^1.4.0"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
