@@ -1,10 +1,11 @@
-import ToastDemo from './components/ToastDemo';
+import OrderStatusSelector from './components/OrderStatusSelector';
+import Providers from './providers';
 
 const App = () => {
   return (
-    <>
-      <ToastDemo />
-    </>
+    <Providers>
+      <OrderStatusSelector onChange={console.log} />
+    </Providers>
   );
 };
 
