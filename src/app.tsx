@@ -1,12 +1,10 @@
-import SearchBox from './components/SearchBox';
+import ToastDemo from './components/ToastDemo';
 
 const App = () => {
   return (
-    <SearchBox
-      onChange={value => {
-        console.log(value);
-      }}
-    />
+    <>
+      <ToastDemo />
+    </>
   );
 };
 
