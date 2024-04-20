@@ -1,10 +1,10 @@
-import OrderStatusSelector from './components/OrderStatusSelector';
+import PostList from './components/PostList';
 import Providers from './providers';
 
 const App = () => {
   return (
     <Providers>
-      <OrderStatusSelector onChange={console.log} />
+      <PostList />
     </Providers>
   );
 };

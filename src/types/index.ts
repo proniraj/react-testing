@@ -15,3 +15,10 @@ export type Product = {
   price: number;
   categoryId: number;
 };
+
+export type Post = {
+  UserId: number;
+  id: number;
+  title: string;
+  body: string;
+};
