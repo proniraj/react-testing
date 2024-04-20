@@ -4,13 +4,18 @@ import { useEffect, useState } from 'react';
 const TagList = () => {
   const [tags, setTags] = useState<string[]>([]);
 
+  const fetchTags = async () => {
+    await delay(500);
+    return ['tag1', 'tag2', 'tag3'];
+  };
+
   useEffect(() => {
-    const fetchTags = async () => {
-      await delay(500);
-      setTags(['tag1', 'tag2', 'tag3']);
-    };
-    fetchTags();
-  });
+    fetchTags()
+      .then(res => {
+        setTags(res);
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <ul>
