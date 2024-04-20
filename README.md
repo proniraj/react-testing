@@ -120,3 +120,11 @@ import '@testing-library/jest-dom/vitest';
 - getByPlaceholderText
 - getByText
 - getByDisplayValue
+
+# queryByRole vs getByRole
+
+The `queryByRole` function is used to query the rendered component by role. The `getByRole` function is used to query the rendered component by role. The `queryByRole` function returns null if the element is not found. The `getByRole` function throws an error if the element is not found.
+
+# queryByLabelText vs getByLabelText
+
+The `queryByLabelText` function is used to query the rendered component by label text. The `getByLabelText` function is used to query the rendered component by label text. The `queryByLabelText` function returns null if the element is not found. The `getByLabelText` function throws an error if the element is not found.
