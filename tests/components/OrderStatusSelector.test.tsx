@@ -13,18 +13,16 @@ describe('OrderStatusSelector', () => {
       </Theme>
     );
 
-    const tigger = screen.getByRole('combobox');
-
     return {
       onChange,
-      tigger,
+      tigger: screen.getByRole('combobox'),
       getOptions: () => screen.getAllByRole('option'),
+      user: userEvent.setup(),
     };
   };
 
   it('should render the component with correct status', async () => {
-    const { tigger, getOptions } = renderComponent();
-    const user = userEvent.setup();
+    const { tigger, user, getOptions } = renderComponent();
 
     await user.click(tigger);
 
@@ -36,8 +34,7 @@ describe('OrderStatusSelector', () => {
   });
 
   it('should call onChange when selecting an option', async () => {
-    const { onChange, tigger, getOptions } = renderComponent();
-    const user = userEvent.setup();
+    const { onChange, tigger, user, getOptions } = renderComponent();
 
     await user.click(tigger);
 
@@ -48,22 +45,20 @@ describe('OrderStatusSelector', () => {
   });
 
   it("should not display options when it's closed", async () => {
-    const { tigger, getOptions } = renderComponent();
+    const { tigger, user, getOptions } = renderComponent();
 
     const initialOptions = screen.queryAllByRole('option');
 
     expect(initialOptions).toHaveLength(0);
 
-    const user = userEvent.setup();
     await user.click(tigger);
 
     expect(getOptions()).toHaveLength(3);
   });
 
   it('should call onChange WithCorrect value', async () => {
-    const { onChange, tigger } = renderComponent();
+    const { onChange, tigger, user } = renderComponent();
 
-    const user = userEvent.setup();
     await user.click(tigger);
 
     const processedButton = screen.getByRole('option', {
@@ -83,9 +78,8 @@ describe('OrderStatusSelector', () => {
       option: 'fulfilled',
     },
   ])('should call onChange with correct value when selecting %s', async ({ option }) => {
-    const { onChange, tigger } = renderComponent();
+    const { onChange, tigger, user } = renderComponent();
 
-    const user = userEvent.setup();
     await user.click(tigger);
 
     const optionButton = screen.getByRole('option', {
