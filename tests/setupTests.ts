@@ -1,5 +1,12 @@
 import '@testing-library/jest-dom/vitest';
 import ResizeObserver from 'resize-observer-polyfill';
+import { server } from './mocks/server';
+
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
 
 // Mocking the ResizeObserver
 globalThis.ResizeObserver = ResizeObserver;
@@ -14,6 +21,7 @@ Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation(query => ({
     matches: false,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     media: query,
     onchange: null,
     addEventListener: vi.fn(),
