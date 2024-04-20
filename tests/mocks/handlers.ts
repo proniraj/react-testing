@@ -76,6 +76,27 @@ const handlers = [
       },
     ]);
   }),
+
+  http.get('https://jsonplaceholder.typicode.com/posts/:id', ({ params }) => {
+    const { id } = params;
+    console.log(id);
+
+    if (id.toString() === '0' || Number(id.toString()) > 500) {
+      return HttpResponse.json(
+        {},
+        {
+          status: 404,
+          statusText: 'Not Found',
+        }
+      );
+    }
+
+    return HttpResponse.json({
+      id: Number(id),
+      title: 'this is a title',
+      body: 'lorem ipsum dolor sit amet',
+    });
+  }),
 ];
 
 export { handlers };

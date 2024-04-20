@@ -1,10 +1,10 @@
-import PostList from './components/PostList';
+import PostDetail from './components/PostDetail';
 import Providers from './providers';
 
 const App = () => {
   return (
     <Providers>
-      <PostList />
+      <PostDetail postId={1} />
     </Providers>
   );
 };
