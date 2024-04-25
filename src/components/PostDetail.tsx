@@ -16,8 +16,6 @@ const PostDetail = ({ postId }: { postId: number }) => {
     axios
       .get<Post>(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then(response => {
-        console.log('postid', postId);
-        console.log('response.data', response.data);
         if (!response.data.id) return setPost(undefined);
         setPost(response.data);
       })

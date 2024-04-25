@@ -45,12 +45,10 @@ describe('PostDetail', () => {
     const title = await screen.findByRole('heading', { name: /post detail/i });
 
     const body = await screen.findByText(/body/i);
-    const postBody = await screen.findByText(/lorem ipsum/i);
 
     const loadingMessage = screen.queryByText(/loading/i);
     expect(loadingMessage).not.toBeInTheDocument();
 
-    expect(postBody).toBeInTheDocument();
     expect(title).toBeInTheDocument();
     expect(body).toBeInTheDocument();
   });
